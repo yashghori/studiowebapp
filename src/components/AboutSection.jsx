@@ -5,30 +5,28 @@ import home1 from "../img/home1.png"
 import { About, Description, Hide, Image } from '../Style'
 // framer motion
 import { motion } from 'framer-motion'
+import { TitleAnim, Fade, PhotoAnim } from '../Animation'
 
 const AboutSection = () => {
-
-
-
     return (
         <About >
             <Description>
                 <motion.div className="title">
                     <Hide>
-                        <h2  >We work to make</h2>
+                        <motion.h2 variants={TitleAnim}  >We work to make</motion.h2>
                     </Hide>
                     <Hide>
-                        <h2>your <span>dreams</span>  </h2>
+                        <motion.h2 variants={TitleAnim} >your <span>dreams</span>  </motion.h2>
                     </Hide>
                     <Hide>
-                        <h2>come true.</h2>
+                        <motion.h2 variants={TitleAnim} >come true.</motion.h2>
                     </Hide>
                 </motion.div>
-                <p>contact us from any hotography and videography ideas that you have. We have professionals with amzing skills to help you achieve it </p>
+                <motion.p variants={Fade} >contact us from any hotography and videography ideas that you have. We have professionals with amzing skills to help you achieve it </motion.p>
                 <button>Contact Us</button>
             </Description>
             <Image>
-                <img src={home1} alt="" />
+                <motion.img variants={PhotoAnim} src={home1} alt="" />
             </Image>
         </About>
     )
