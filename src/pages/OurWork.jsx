@@ -9,8 +9,12 @@ import { Link } from 'react-router-dom'
 //import animations 
 import { motion } from 'framer-motion'
 import { PageAnimation, Fade, PhotoAnim, LineAnim, FrameAnim, ContainerFrameAnim } from '../Animation'
+import UseScroll from '../components/UseScroll'
+import ScrollTop from '../components/ScrollTop'
 
 const OurWork = () => {
+  const [element, controls] = UseScroll()
+  const [element2, controls2] = UseScroll()
   return (
     <motion.div variants={PageAnimation} initial="hidden" animate="show" exit="exit" >
       <motion.div variants={ContainerFrameAnim} >
@@ -25,17 +29,18 @@ const OurWork = () => {
           <motion.div variants={LineAnim} className="line"></motion.div>
           <Link to="/work/the-athlete" > <HideOverflow><motion.img variants={PhotoAnim} src={athlete} alt="" /> </HideOverflow> </Link>
         </Movie>
-        <Movie>
+        <Movie ref={element} variants={Fade} animate={controls} initial="hidden" >
           <motion.h2 variants={Fade} >The Racer</motion.h2>
-          <div className="line"></div>
+          <motion.div variants={LineAnim} className="line"></motion.div>
           <Link to="/work/the-racer" ><HideOverflow> <motion.img variants={PhotoAnim} src={theracer} alt="" /></HideOverflow> </Link>
         </Movie>
-        <Movie>
+        <Movie ref={element2} variants={Fade} animate={controls2} initial="hidden">
           <motion.h2 variants={Fade} >Good Times</motion.h2>
-          <div className="line"></div>
+          <motion.div variants={LineAnim} className="line"></motion.div>
           <Link to="/work/good-times" > <HideOverflow> <motion.img PhotoAnim={PhotoAnim} src={goodtimes} alt="" /> </HideOverflow> </Link>
         </Movie>
       </Work>
+      <ScrollTop />
     </motion.div>
   )
 }
@@ -44,6 +49,10 @@ const Work = styled.div`
   min-height: 100vh;
   overflow: hidden;
   padding: 5rem;
+  @media screen and (max-width: 862px){
+    padding: 2rem;
+
+  }
   h2{
     padding: 1rem 0;
     color : grey
@@ -53,8 +62,11 @@ const HideOverflow = styled.div`
   overflow: hidden;
 `
 
-const Movie = styled.div`
+const Movie = styled(motion.div)`
   padding-bottom: 10rem;
+  @media screen and (max-width: 862px){
+    padding-bottom: 5rem;
+  }
   .line{
     height: 0.5rem;
     background: #23d997;

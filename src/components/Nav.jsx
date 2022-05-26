@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 const Nav = () => {
     return (
-        <div>
+        <>
             <StyledNav>
                 <h1><a id='logo' href="#" >Capture </a></h1>
                 <UL>
@@ -12,7 +12,7 @@ const Nav = () => {
                     <li><NavLink to="/contact">3. Contact US</NavLink></li>
                 </UL>
             </StyledNav>
-        </div>
+        </>
     )
 }
 
@@ -24,6 +24,13 @@ const StyledNav = styled.nav`
     justify-content: space-between;
     align-items: center;
     padding: 1rem 5rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    @media screen and (max-width: 862px){
+        padding: 1rem;
+        justify-content: center;
+    }
     a{
         color: white;
         text-decoration: none;
@@ -31,8 +38,13 @@ const StyledNav = styled.nav`
     #logo{
         font-family: "Lobster", "cursive";
         font-size: 1.5rem;
-        font-weight: lighter;
+        font-weight: lighter; 
     }
+    @media screen and (max-width: 422px){
+        h1{
+            display: none;
+        }
+        }
 `
 const UL = styled.nav`
     display: flex;

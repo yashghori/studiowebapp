@@ -68,10 +68,20 @@ const Awards = styled.div`
   margin: 5rem;
   align-items: center;
   justify-content: space-around;
+  @media screen and (max-width: 900px){
+      flex-direction: column;
+      margin: 2rem;
+  }
 `
 
 const StyledAward = styled.div`
 padding: 5rem;
+@media screen and (max-width: 1300px){
+    padding: 2rem;
+}
+@media screen and (max-width: 950px){
+    padding: 1rem;
+}
 h3{
     font-size: 2rem;
 }

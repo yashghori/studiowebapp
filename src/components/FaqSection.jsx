@@ -3,11 +3,14 @@ import styled from 'styled-components'
 import { About } from '../Style'
 import Toggle from './Toggle'
 import { AnimateSharedLayout } from 'framer-motion'
+import UseScroll from './UseScroll'
+import { Fade } from '../Animation'
 
 const FaqSection = () => {
+    const [element, controls] = UseScroll()
     return (
         <div>
-            <FaqStyle>
+            <FaqStyle ref={element} animate={controls} initial="hidden" variants={Fade} >
                 <h2>Any  Questions ?<span>FAQ</span> </h2>
                 <AnimateSharedLayout>
                     <Toggle title="How do we start ?" >
@@ -53,6 +56,9 @@ const FaqSection = () => {
 
 const FaqStyle = styled(About)`
     display: block;
+    @media screen and (max-width: 862px){
+        padding: 2rem;
+    }
     span{
         display: block;
     }
