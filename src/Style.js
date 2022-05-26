@@ -12,12 +12,14 @@ export const Description = styled.div`
   font-weight: lighter;
   padding-right: 5rem;
   flex: 1;
+  z-index: 2;
   h2 {
     font-weight: lighter;
   }
 `;
 export const Image = styled.div`
   overflow: hidden;
+  z-index: 2;
   flex: 1;
   img {
     width: 100%;

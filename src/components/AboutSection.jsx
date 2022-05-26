@@ -1,6 +1,6 @@
 import React from 'react'
 import home1 from "../img/home1.png"
-
+import Wave from './Wave'
 // Importing styles
 import { About, Description, Hide, Image } from '../Style'
 // framer motion
@@ -28,6 +28,7 @@ const AboutSection = () => {
             <Image>
                 <motion.img variants={PhotoAnim} src={home1} alt="" />
             </Image>
+            <Wave />
         </About>
     )
 }
